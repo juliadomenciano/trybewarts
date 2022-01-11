@@ -10,15 +10,15 @@ const firstName = document.getElementById('input-name');
 const lastName = document.getElementById('input-lastname');
 const email = document.getElementById('input-email');
 const house = document.getElementById('house');
-const family = document.getElementById('input[name=family]');
-const subject = document.getElementById('input[type=checkbox]');
-const assessment = document.getElementById('input[name=rate]');
+const family = document.querySelectorAll('input[name=family]');
+const subject = document.querySelectorAll('input[type=checkbox]');
+const assessment = document.querySelectorAll('input[name=rate]');
 const info = document.getElementById('info');
 
 const nome = document.createElement('p');
 const emailInfo = document.createElement('p');
 const CasalInfo = document.createElement('p');
-const FamíliaInfo = document.createElement('p');
+const famíliaInfo = document.createElement('p');
 const materiasInfo = document.createElement('p');
 const avaliacaoInfo = document.createElement('p');
 const observacaoInfo = document.createElement('p');
@@ -44,11 +44,36 @@ function contador() {
   count.innerHTML = 500 - char;
 }
 
+function getFamilyValue() {
+  for (let i = 0; i < family.length; i += 1) {
+    if (family[i].checked) {
+      famíliaInfo.innerHTML = `Família: ${family[i].value}`;
+    }
+  }
+}
+
+function getRateValue() {
+  for (let i = 0; i < assessment.length; i += 1) {
+    if (assessment[i].checked) {
+      avaliacaoInfo.innerHTML = `Avaliação: ${assessment[i].value}`;
+    }
+  }
+}
+
+function getCheckboxValue() {
+  let arr = [];
+  for (let i = 0; i < subject.length; i += 1) {
+    if (subject[i].checked) {
+      arr.push(subject[i]);
+    }
+  }
+}
+
 function createInfoSection() {
   nome.innerHTML = `Nome: ${firstName.value} ${lastName.value}`;
   emailInfo.innerHTML = `email: ${email.value}`;
   CasalInfo.innerHTML = `Casa: ${house.value}`;
-  FamíliaInfo.innerHTML = `Família: ${family.value}`;
+ 
   materiasInfo.innerHTML = `Matérias: ${subject.value}`;
   avaliacaoInfo.innerHTML = `Matérias: ${assessment.value}`;
   observacaoInfo.innerHTML = `Observações: ${textarea.value}`;
