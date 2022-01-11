@@ -11,7 +11,7 @@ const lastName = document.getElementById('input-lastname');
 const email = document.getElementById('input-email');
 const house = document.getElementById('house');
 const family = document.querySelectorAll('input[name=family]');
-const subject = document.querySelectorAll('input[type=checkbox]');
+const subject = document.querySelectorAll('input[name=subject]');
 const assessment = document.querySelectorAll('input[name=rate]');
 const info = document.getElementById('info');
 
@@ -62,13 +62,15 @@ function getRateValue() {
 
 function getCheckboxValue() {
   const arr = [];
+  console.log(subject);
   for (let i = 0; i < subject.length; i += 1) {
     if (subject[i].checked) {
       arr.push(subject[i].value);
     }
   }
-  const checkbox = arr.toString();
-  materiasInfo.innerHTML = `Matéria: ${checkbox}`;
+  const checkboxSubject = arr.toString();
+
+  materiasInfo.innerHTML = `Matéria: ${checkboxSubject}`;
 }
 
 function createInfoSection() {
@@ -92,7 +94,6 @@ function sendInfo(event) {
   getFamilyValue();
   getRateValue();
   getCheckboxValue();
-
 }
 
 login.addEventListener('click', logintrybewarts);
