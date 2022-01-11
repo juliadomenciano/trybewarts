@@ -5,13 +5,13 @@ const enviar = document.getElementById('submit-btn');
 const agreement = document.getElementById('agreement');
 const count = document.getElementById('counter');
 const textarea = document.getElementById('textarea');
-const form = document.getElementById('form');
+const form = document.getElementById('input-form');
 const firstName = document.getElementById('input-name');
 const lastName = document.getElementById('input-lastname');
 const email = document.getElementById('input-email');
 const house = document.getElementById('house');
 const family = document.querySelectorAll('input[name=family]');
-const subject = document.querySelectorAll('input[name=subject]');
+const subject = document.querySelectorAll('input[class=subject]');
 const assessment = document.querySelectorAll('input[name=rate]');
 const info = document.getElementById('info');
 
@@ -62,20 +62,19 @@ function getRateValue() {
 
 function getCheckboxValue() {
   const arr = [];
-  console.log(subject);
   for (let i = 0; i < subject.length; i += 1) {
     if (subject[i].checked) {
       arr.push(subject[i].value);
     }
   }
-  const checkboxSubject = arr.toString();
+  const checkboxSubject = arr.join(', ');
 
-  materiasInfo.innerHTML = `Matéria: ${checkboxSubject}`;
+  materiasInfo.innerHTML = `Matérias: ${checkboxSubject}`;
 }
 
 function createInfoSection() {
   nome.innerHTML = `Nome: ${firstName.value} ${lastName.value}`;
-  emailInfo.innerHTML = `email: ${email.value}`;
+  emailInfo.innerHTML = `Email: ${email.value}`;
   casaInfo.innerHTML = `Casa: ${house.value}`;
   observacaoInfo.innerHTML = `Observações: ${textarea.value}`;
   info.appendChild(nome);
