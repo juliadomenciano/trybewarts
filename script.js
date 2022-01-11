@@ -17,7 +17,7 @@ const info = document.getElementById('info');
 
 const nome = document.createElement('p');
 const emailInfo = document.createElement('p');
-const CasalInfo = document.createElement('p');
+const casaInfo = document.createElement('p');
 const famíliaInfo = document.createElement('p');
 const materiasInfo = document.createElement('p');
 const avaliacaoInfo = document.createElement('p');
@@ -61,26 +61,25 @@ function getRateValue() {
 }
 
 function getCheckboxValue() {
-  let arr = [];
+  const arr = [];
   for (let i = 0; i < subject.length; i += 1) {
     if (subject[i].checked) {
-      arr.push(subject[i]);
+      arr.push(subject[i].value);
     }
   }
+  const checkbox = arr.toString();
+  materiasInfo.innerHTML = `Matéria: ${checkbox}`;
 }
 
 function createInfoSection() {
   nome.innerHTML = `Nome: ${firstName.value} ${lastName.value}`;
   emailInfo.innerHTML = `email: ${email.value}`;
-  CasalInfo.innerHTML = `Casa: ${house.value}`;
- 
-  materiasInfo.innerHTML = `Matérias: ${subject.value}`;
-  avaliacaoInfo.innerHTML = `Matérias: ${assessment.value}`;
+  casaInfo.innerHTML = `Casa: ${house.value}`;
   observacaoInfo.innerHTML = `Observações: ${textarea.value}`;
   info.appendChild(nome);
   info.appendChild(emailInfo);
-  info.appendChild(CasalInfo);
-  info.appendChild(FamíliaInfo);
+  info.appendChild(casaInfo);
+  info.appendChild(famíliaInfo);
   info.appendChild(materiasInfo);
   info.appendChild(avaliacaoInfo);
   info.appendChild(observacaoInfo);
@@ -90,6 +89,10 @@ function sendInfo(event) {
   event.preventDefault();
   form.style.display = 'none';
   createInfoSection();
+  getFamilyValue();
+  getRateValue();
+  getCheckboxValue();
+
 }
 
 login.addEventListener('click', logintrybewarts);
