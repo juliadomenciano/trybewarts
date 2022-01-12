@@ -18,7 +18,7 @@ const info = document.getElementById('info');
 const nome = document.createElement('p');
 const emailInfo = document.createElement('p');
 const casaInfo = document.createElement('p');
-const famíliaInfo = document.createElement('p');
+const familiaInfo = document.createElement('p');
 const materiasInfo = document.createElement('p');
 const avaliacaoInfo = document.createElement('p');
 const observacaoInfo = document.createElement('p');
@@ -47,7 +47,7 @@ function contador() {
 function getFamilyValue() {
   for (let i = 0; i < family.length; i += 1) {
     if (family[i].checked) {
-      famíliaInfo.innerHTML = `Família: ${family[i].value}`;
+      familiaInfo.innerHTML = `Família: ${family[i].value}`;
     }
   }
 }
@@ -80,7 +80,7 @@ function createInfoSection() {
   info.appendChild(nome);
   info.appendChild(emailInfo);
   info.appendChild(casaInfo);
-  info.appendChild(famíliaInfo);
+  info.appendChild(familiaInfo);
   info.appendChild(materiasInfo);
   info.appendChild(avaliacaoInfo);
   info.appendChild(observacaoInfo);
