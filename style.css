@@ -6,8 +6,8 @@ body {
 header {
   background-color: rgb(50, 167, 145);
   display: flex;
-  padding: 5px 25px;
-  justify-content: space-between;
+  /* padding: 5px 25px; */
+  justify-content: space-evenly;
 }
 
 .trybewarts-header-logo {
@@ -25,7 +25,34 @@ h1 {
 }
 
 main {
+  background-color: rgb(192, 235, 226);
   display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 5px 5px 30px rgb(45, 56, 54);
+  margin: 20px;
+}
+
+.container-name input {
+  margin-bottom: 3px;
+  margin-right: 5px;
+}
+textarea {
+  width: 550px;
+}
+
+#submit-btn {
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+.container-rate {
+  margin-bottom: 8px;
+}
+
+.container-info, .container-family, .container-content, .container-rate, .container-textarea, .container-agreement {
+  margin-top: 8px;
 }
 
 #evaluation-form {
@@ -54,3 +81,14 @@ main {
   font-size: 13px;
   color: gray;
 }
+
+footer {
+  text-align: center;
+}
+/* @media screen and (max-width: 500px) {
+  main {
+    justify-content: center;
+    align-items: center;
+  }
+  
+} */
